@@ -3,9 +3,7 @@ import { IonToolbar, IonButtons, IonIcon, IonButton } from '@ionic/react'
 import { arrowBackOutline, arrowForwardOutline } from 'ionicons/icons'
 import styles from './styles.module.css'
 
-export interface FooterToolbarProps {
-  slot?: string
-}
+export interface FooterToolbarProps {}
 
 const FooterToolbar: FC<FooterToolbarProps> = () => {
   return (

@@ -9,7 +9,7 @@ import FooterToolbar from './components/FooterToolbar'
 
 const IssuePage: FC = () => {
   const { show: showToolbar, handleShow: handleShowToolbar } = useCountDownShow({
-    duration: 1000,
+    duration: 3000,
   })
   const { ref: blockRef, size } = useElementSize<HTMLDivElement>()
 
