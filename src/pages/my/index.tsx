@@ -1,5 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
-import styles from './styles.module.css'
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react'
+// import styles from './styles.module.css'
 
 const MyPage: React.FC = () => {
   return (
@@ -10,8 +10,7 @@ const MyPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <p>hello this is my page</p>
-        <div className={styles.block}></div>
+        <IonButton href="/issue">Jump</IonButton>
       </IonContent>
     </IonPage>
   )

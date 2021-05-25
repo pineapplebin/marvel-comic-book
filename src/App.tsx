@@ -1,4 +1,5 @@
 import { Redirect, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import {
   IonApp,
   IonIcon,
@@ -12,6 +13,7 @@ import { IonReactRouter } from '@ionic/react-router'
 import { bookOutline, personOutline } from 'ionicons/icons'
 import HomePage from './pages/home'
 import MyPage from './pages/my'
+import IssuePage from './pages/issue'
 
 /* normalize */
 import 'normalize.css'
@@ -36,32 +38,47 @@ import '@ionic/react/css/display.css'
 /* Theme variables */
 import './theme/variables.css'
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
+const App: React.FC = () => {
+  useEffect(() => {
+    document.body.classList.add('dark')
+  }, [])
+
+  return (
+    <IonApp>
+      <IonReactRouter>
         <IonRouterOutlet>
-          <Redirect from="/" to="/home"></Redirect>
-          <Route exact path="/home">
-            <HomePage />
+          <Route exact path="/">
+            <Redirect to="/tabs/home" />
           </Route>
-          <Route exact path="/my">
-            <MyPage />
+          <Route path="/tabs">
+            <IonTabs>
+              <IonRouterOutlet>
+                <Route exact path="/tabs/home">
+                  <HomePage />
+                </Route>
+                <Route exact path="/tabs/my">
+                  <MyPage />
+                </Route>
+              </IonRouterOutlet>
+              <IonTabBar slot="bottom">
+                <IonTabButton tab="read" href="/tabs/home">
+                  <IonIcon icon={bookOutline} />
+                  <IonLabel>阅读</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="my" href="/tabs/my">
+                  <IonIcon icon={personOutline} />
+                  <IonLabel>我的</IonLabel>
+                </IonTabButton>
+              </IonTabBar>
+            </IonTabs>
+          </Route>
+          <Route path="/issue">
+            <IssuePage />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="read" href="/read">
-            <IonIcon icon={bookOutline} />
-            <IonLabel>阅读</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="my" href="/my">
-            <IonIcon icon={personOutline} />
-            <IonLabel>我的</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-)
+      </IonReactRouter>
+    </IonApp>
+  )
+}
 
 export default App

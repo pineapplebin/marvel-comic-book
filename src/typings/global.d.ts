@@ -18,3 +18,10 @@ export declare global {
     }
   }
 }
+
+export declare module Common {
+  interface Size {
+    width: number
+    height: number
+  }
+}
