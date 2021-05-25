@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import {
   IonApp,
   IonIcon,
@@ -10,7 +10,7 @@ import {
 } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
 import { bookOutline, personOutline } from 'ionicons/icons'
-import Tab1 from './pages/Tab1'
+import HomePage from './pages/home'
 import MyPage from './pages/my'
 
 /* normalize */
@@ -41,8 +41,9 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/read">
-            <Tab1 />
+          <Redirect from="/" to="/home"></Redirect>
+          <Route exact path="/home">
+            <HomePage />
           </Route>
           <Route exact path="/my">
             <MyPage />
