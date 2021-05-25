@@ -4,6 +4,6 @@
   right: 0;
   bottom: 0;
   background-color: var(--ion-background-color);
-  border-top: 1px solid var(--ion-color-danger-shade);
+  border-top: 2px solid var(--ion-color-primary);
   z-index: 1;
 }
