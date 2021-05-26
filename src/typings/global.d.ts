@@ -24,4 +24,9 @@ export declare module Common {
     width: number
     height: number
   }
+
+  interface Position {
+    x: number
+    y: number
+  }
 }

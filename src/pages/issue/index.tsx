@@ -6,6 +6,7 @@ import SAMPLE from './sample.jpg'
 import { useCountDownShow, useElementSize } from './hooks'
 import MagicPage from './components/MagicPage'
 import FooterToolbar from './components/FooterToolbar'
+import RectMarquee from 'src/components/RectMarquee'
 
 const IssuePage: FC = () => {
   const { show: showToolbar, handleShow: handleShowToolbar } = useCountDownShow({
@@ -20,6 +21,7 @@ const IssuePage: FC = () => {
           <MagicPage containerSize={size} src={SAMPLE} />
         </div>
         {showToolbar && <FooterToolbar />}
+        <RectMarquee value={{ width: 100, height: 100, x: 0, y: 0 }} />
       </IonContent>
     </IonPage>
   )

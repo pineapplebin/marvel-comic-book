@@ -1,0 +1,6 @@
+.block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1.3333vw dashed var(--ion-color-primary);
+}

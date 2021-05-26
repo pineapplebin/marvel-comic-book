@@ -22,7 +22,6 @@ const CanvasImage: FC<CanvasImageProps> = ({ src, onLoad }) => {
     img.src = src
 
     img.onload = function () {
-      console.log(img.width, img.height)
       setSize({ width: img.width, height: img.height })
 
       const ctx = ref.current?.getContext('2d')
