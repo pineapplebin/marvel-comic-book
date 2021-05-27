@@ -1,5 +1,6 @@
 import { CSSProperties, FC } from 'react'
 import { Common } from 'src/typings/global'
+import cx from 'classnames'
 import styles from './styles.module.css'
 
 export type PositionSize = Common.Position & Common.Size
@@ -17,7 +18,11 @@ const RectMarquee: FC<RectMarqueeProps> = ({ value }) => {
     height: `${value?.height ?? 0}px`,
   }
 
-  return <div className={styles.block} style={computedStyle}></div>
+  return (
+    <div className={styles.block} style={computedStyle}>
+      <div className={cx(styles.controlDot)} />
+    </div>
+  )
 }
 
 export default RectMarquee

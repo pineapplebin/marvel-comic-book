@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom'
-import { useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import {
   IonApp,
   IonIcon,
@@ -38,7 +38,7 @@ import '@ionic/react/css/display.css'
 /* Theme variables */
 import './theme/variables.css'
 
-const App: React.FC = () => {
+const App: FC = () => {
   useEffect(() => {
     document.body.classList.add('dark')
   }, [])
