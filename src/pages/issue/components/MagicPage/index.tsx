@@ -17,7 +17,7 @@ interface TransformSetting {
 function turnTransformSetting(setting: TransformSetting): string {
   const { scale, translate } = setting
   return [
-    scale && `scale(${scale})`,
+    scale && `scale3d(${scale}, ${scale}, 1)`,
     translate && `translate(${translate[0]}px, ${translate[1]}px)`,
   ]
     .filter((s) => !!s)

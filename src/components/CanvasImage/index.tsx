@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useLayoutEffect, useRef, useState } from 'react'
 import { Common } from 'src/typings/global'
 
 export interface CanvasImageProps {
@@ -13,7 +13,7 @@ const CanvasImage: FC<CanvasImageProps> = ({ src, onLoad }) => {
   const ref = useRef<HTMLCanvasElement>(null)
   const [size, setSize] = useState<Common.Size>({ width: 0, height: 0 })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!src) {
       return
     }
@@ -22,6 +22,7 @@ const CanvasImage: FC<CanvasImageProps> = ({ src, onLoad }) => {
     img.src = src
 
     img.onload = function () {
+      console.log(img.width, img.height)
       setSize({ width: img.width, height: img.height })
 
       const ctx = ref.current?.getContext('2d')
