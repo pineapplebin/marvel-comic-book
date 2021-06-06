@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useCallback, useLayoutEffect, useRef, useState } from 'react'
+import { CSSProperties, FC, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Common } from 'src/typings/global'
 import Hammer from 'hammerjs'
 import cx from 'classnames'
@@ -47,10 +47,13 @@ export function useRectMarquee() {
   const [data, setData] = useState<PositionSize>({ x: 0, y: 0, width: 100, height: 100 })
 
   const handleMove = useCallback((delta: Common.Position) => {
+    console.log(delta)
     setData((prev) => ({ ...prev, x: prev.x + delta.x, y: prev.y + delta.y }))
   }, [])
 
-  const marquee = <RectMarquee value={data} onMove={handleMove} />
+  const marquee = useMemo(() => {
+    return <RectMarquee value={data} onMove={handleMove} />
+  }, [data, handleMove])
 
   return { marquee }
 }

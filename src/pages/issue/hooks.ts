@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import { Common } from 'src/typings/global'
 
 export interface UseCountDownShowOptions {
@@ -44,7 +44,7 @@ export function useElementSize<E extends HTMLElement = any>() {
   const ref = useRef<E>(null)
   const [size, setSize] = useState<Common.Size>({ width: 0, height: 0 })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     function resize() {
       const rect = ref.current?.getBoundingClientRect()
       setSize({ width: rect?.width ?? 0, height: rect?.height ?? 0 })
@@ -53,7 +53,7 @@ export function useElementSize<E extends HTMLElement = any>() {
     // bug?
     setTimeout(() => {
       resize()
-    }, 50)
+    }, 100)
 
     return () => {
       window.removeEventListener('resize', resize)
